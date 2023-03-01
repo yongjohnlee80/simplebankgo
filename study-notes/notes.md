@@ -40,8 +40,8 @@ Migration process must be in reverse order
 sequenceDiagram
     participant O as Old DB Schema
     participant N as New DB Schema
-    O->>N: 1.sql 2.sql 3.sql
-    O<<-N: 3.sql 2.sql 1.sql
+    O->>N: sql1 sql2 sql3
+    N->>O: sql3 sql2 sql1
 ```
 
 ### Example
