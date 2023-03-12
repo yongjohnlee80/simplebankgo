@@ -5,6 +5,10 @@ John's learning project for Mar of 2023.
 ## Objective
 Develop a simple mock up golang backend server with postgres db.
 
+## Study Notes
+1. [Setting up DB schema and migration, and make file structure](./docs/db-setup-migration.md)
+2. [Golang DB options: database/sql, sqlx, sqlc, and GORM](./docs/go-db-options.md)
+
 ## Requirements
 1. docker
 2. postgres:15-alpine
