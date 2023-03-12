@@ -45,9 +45,9 @@ migrate create -ext sql -dir db/migration -seq init_schema
 ### Usage
 
 ```shell
-run --name {$name} -p {HOST_PORT:CONT_PORT} -e {ENV_VAR}={$VALUE}  
-logs {$name | $id}  
-exec -it {$name} {command}
+docker run --name {$name} -p {HOST_PORT:CONT_PORT} -e {ENV_VAR}={$VALUE}  
+docker logs {$name | $id}  
+docker exec -it {$name} {command}
 ```
 
 ### Example
