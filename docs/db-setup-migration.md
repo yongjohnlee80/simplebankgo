@@ -21,6 +21,7 @@ make migrateup
 #to revert the migration of schemas
 make migratedown
 ```
+[SimpleBankGo Makefile](../Makefile)
 
 ## golang-migrate
 Helps managing migration of db schemas  
