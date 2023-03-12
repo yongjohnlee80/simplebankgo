@@ -14,6 +14,8 @@ Develop a simple mock up golang backend server with postgres db.
 2. postgres:15-alpine
 3. [sqlc](https://sqlc.dev)
 4. [golang-migrate](https://https://github.com/golang-migrate/migrate)
+5. [golang psql driver: lib/pq](https://github.com/lib/pq)
+6. [unit testing(assertion): stretchr/testify](https://github.com/stretchr/testify)
 
 ## Tools used
 1. [TablePlus](https://tableplus.com)
