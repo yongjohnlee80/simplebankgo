@@ -21,7 +21,7 @@ func NewStore(db *sql.DB) *Store {
 }
 
 // execTx executes a cb func within a db transaction.
-func (s *Store) execTx(ctx context.Context, fn func(queries *Queries) error) error {
+func (s *Store) execTx(ctx context.Context, fn func(*Queries) error) error {
 	tx, err := s.db.BeginTx(ctx, nil) // TxOptions allows to set a custom Isolation Level for tx, nil = db default.
 	if err != nil {
 		return err
@@ -47,10 +47,10 @@ type TransferTxParams struct {
 
 type TransferTxResult struct {
 	Transfer    Transfer `json:"transfer"`
-	FromAccount Account  `json:"fromAccount"`
-	ToAccount   Account  `json:"toAccount"`
-	FromEntry   Entry    `json:"fromEntry"`
-	ToEntry     Entry    `json:"toEntry"`
+	FromAccount Account  `json:"from_account"`
+	ToAccount   Account  `json:"to_account"`
+	FromEntry   Entry    `json:"from_entry"`
+	ToEntry     Entry    `json:"to_entry"`
 }
 
 // TransferTx performs a money transfer from account A to B.
@@ -87,7 +87,7 @@ func (s *Store) TransferTx(ctx context.Context, arg TransferTxParams) (TransferT
 		}
 
 		// TODO: update accounts' balances
-		return err
+		return nil
 	})
 
 	return result, err
