@@ -1,3 +1,10 @@
+install-utils:
+	docker pull postgres:15-alpine
+	go install github.com/kyleconroy/sqlc/cmd/sqlc@latest
+	go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate@latest
+	go get github.com/lib/pq
+	go get github.com/stretchr/testify
+
 postgres:
 	docker run --name postgres15 -p 5433:5432 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=secret -d postgres:15-alpine
 
@@ -19,4 +26,4 @@ sqlc:
 test:
 	go test -v -cover ./...
 
-.PHONY: postgres createdb dropdb migrateup migratedown sqlc test
+.PHONY: postgres createdb dropdb migrateup migratedown sqlc test install-utils
